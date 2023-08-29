@@ -1,6 +1,7 @@
 package br.com.senai.models;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,4 +17,20 @@ public class Candidato {
     public String nacionalidade;
     public Endereco endereco;
     public List<Escolaridade> escolaridades = new ArrayList<>();
-}
+    public String calcularIdade;
+
+
+    /**
+     * @return
+     */
+    public int calcularIdade() {
+        return Period.between(dataNascimento, LocalDate.now()).getYears();
+    }
+
+        public String eMaiordeIdade() {
+            return calcularIdade() >=18 ? "Sim" : "Não";
+       }
+    }
+
+
+
